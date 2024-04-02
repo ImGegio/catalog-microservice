@@ -1,6 +1,7 @@
 package com.catalog.catalogmicroservice.client;
 
 import com.catalog.catalogmicroservice.model.BookDto;
+import com.catalog.catalogmicroservice.utils.BookApiMethodConstants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.web.client.RestTemplateBuilder;
@@ -19,7 +20,6 @@ public class BookClient {
     private final RestTemplate restTemplate;
     private String host;
     private String controller;
-    private String getAll;
 
     @Autowired
     public BookClient(RestTemplateBuilder restTemplate) {
@@ -29,18 +29,14 @@ public class BookClient {
     public void setHost(String host) {
         this.host = host;
     }
-
     public void setController(String controller) {
         this.controller = controller;
-    }
-    public void setGetAll(String getAll) {
-        this.getAll = getAll;
     }
 
 
     public ResponseEntity<List<BookDto>> getAllBooks(){
         ParameterizedTypeReference<List<BookDto>> responseType = new ParameterizedTypeReference<List<BookDto>>() {};
 
-        return restTemplate.exchange(host + controller + getAll, HttpMethod.GET, null, responseType);
+        return restTemplate.exchange(host + controller + BookApiMethodConstants.GET_ALL, HttpMethod.GET, null, responseType);
     }
 }
