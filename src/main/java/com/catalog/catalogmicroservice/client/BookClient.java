@@ -39,4 +39,27 @@ public class BookClient {
 
         return restTemplate.exchange(host + controller + BookApiMethodConstants.GET_ALL, HttpMethod.GET, null, responseType);
     }
+    public ResponseEntity<BookDto> getBookByTitle(String title){
+        String url = String.valueOf(host + controller + "/" + title);
+        BookDto response = restTemplate.getForObject(url, BookDto.class);
+
+        return ResponseEntity.ok(response);
+    }
+    public ResponseEntity<BookDto> insertBook(BookDto bookDto){
+        String url = String.valueOf(host + controller + BookApiMethodConstants.INSERT);
+        ResponseEntity<BookDto> responseEntity = restTemplate.postForEntity(url, bookDto, BookDto.class);
+
+        return ResponseEntity.ok(responseEntity.getBody());
+    }
+    public ResponseEntity<BookDto> updateBook(BookDto bookDto){
+        String url = String.valueOf(host + controller + BookApiMethodConstants.UPDATE);
+        ResponseEntity<BookDto> responseEntity = restTemplate.exchange(url, HttpMethod.PUT, new HttpEntity<>(bookDto), BookDto.class);
+
+        return ResponseEntity.ok(responseEntity.getBody());
+    }
+    public void deleteBook(Long bookId){
+        String url = String.valueOf(host + controller + "/" + bookId);
+
+        restTemplate.delete(url);
+    }
 }
