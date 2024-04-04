@@ -13,8 +13,8 @@
 </form>
 
 <!-- Form per ottenere libro dal titolo -->
-<form th:action="@{/catalog/{title}}" method="get">
-    <input type="text" name="title" placeholder="Title" required>
+<form id="getBookForm" action="#" method="get">
+    <input type="text" id="title" name="title" placeholder="Title" required>
     <button type="submit">Get Book by Title</button>
 </form>
 
@@ -36,5 +36,13 @@
     <input type="number" name="bookId" placeholder="Book ID" required>
     <button type="submit">Delete Book</button>
 </form>
+
+<script>
+    document.getElementById('getBookForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        var titleValue = document.getElementById('title').value;
+        window.location.href = '/catalog/' + encodeURIComponent(titleValue);
+    });
+</script>
 </body>
 </html>

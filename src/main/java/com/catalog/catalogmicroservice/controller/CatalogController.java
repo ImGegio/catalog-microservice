@@ -1,7 +1,11 @@
 package com.catalog.catalogmicroservice.controller;
 
+import com.catalog.catalogmicroservice.client.AuthClient;
 import com.catalog.catalogmicroservice.client.BookClient;
 import com.catalog.catalogmicroservice.model.BookDto;
+import com.catalog.catalogmicroservice.model.LoginRequest;
+import com.catalog.catalogmicroservice.model.LoginResponse;
+import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -18,8 +22,18 @@ public class CatalogController {
     @Autowired
     private BookClient bookClient;
 
+    @Autowired
+    private AuthClient authClient;
+
+
+    //Pagina iniziale di esempio per le CRUD
     @GetMapping("/crud")
     public String example(Model model) {
+        //Esempio di autenticazione con security
+        LoginRequest request = new LoginRequest("Lor123", "Lorenzo123");
+        ResponseEntity<LoginResponse> response = authClient.login(request);
+        System.out.println("Login effettuata con successo");
+
         model.addAttribute("message", "Crud UI");
         return "crud";
     }
