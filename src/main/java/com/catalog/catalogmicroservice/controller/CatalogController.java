@@ -31,8 +31,8 @@ public class CatalogController {
     public String example(Model model) {
         //Esempio di autenticazione con security
         LoginRequest request = new LoginRequest("Lor123", "Lorenzo123");
-        ResponseEntity<LoginResponse> response = authClient.login(request);
-        System.out.println("Login effettuata con successo");
+        /*ResponseEntity<LoginResponse> response = authClient.login(request);
+        System.out.println("Login effettuata con successo");*/
 
         model.addAttribute("message", "Crud UI");
         return "crud";
