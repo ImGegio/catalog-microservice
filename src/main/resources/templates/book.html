@@ -2,13 +2,13 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Catalog Management</title>
+    <title>Book Management</title>
 </head>
 <body>
-<h1>Catalog Management</h1>
+<h1>Book Management</h1>
 
 <!-- Form per ottenere tutti i libri -->
-<form action="/catalog/get-all-books" method="get">
+<form action="/book/get-all-books" method="get">
     <button type="submit">Get All Books</button>
 </form>
 
@@ -19,20 +19,20 @@
 </form>
 
 <!-- Form per inserire un libro -->
-<form action="/catalog/insert-book" method="post">
+<form action="/book/insert-book" method="post">
     <input type="text" name="title" placeholder="Title" required>
     <button type="submit">Insert Book</button>
 </form>
 
 <!-- Form per aggiornare un libro -->
-<form action="/catalog/update-book" method="put">
+<form action="/book/update-book" method="put">
     <input type="text" name="title" placeholder="Title" required>
     <input type="text" name="author" placeholder="Author" required>
     <button type="submit">Update Book</button>
 </form>
 
 <!-- Form per eliminare un libro -->
-<form action="/catalog/{bookId}" method="delete">
+<form action="/book/{bookId}" method="delete">
     <input type="number" name="bookId" placeholder="Book ID" required>
     <button type="submit">Delete Book</button>
 </form>
@@ -41,7 +41,7 @@
     document.getElementById('getBookForm').addEventListener('submit', function(event) {
         event.preventDefault();
         var titleValue = document.getElementById('title').value;
-        window.location.href = '/catalog/' + encodeURIComponent(titleValue);
+        window.location.href = '/book/' + encodeURIComponent(titleValue);
     });
 </script>
 </body>
