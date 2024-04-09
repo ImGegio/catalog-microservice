@@ -19,7 +19,7 @@ public class User {
     private String surname;
     private String username;
     private String email;
-    private String pwd;
+    private String password;
     private String role;
 
 }

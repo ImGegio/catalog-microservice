@@ -13,7 +13,7 @@ public class UserDto implements UserDetails {
     private String surname;
     private String username;
     private String email;
-    private String pwd;
+    private String password;
     private String role;
 
     @Override
@@ -23,6 +23,6 @@ public class UserDto implements UserDetails {
 
     @Override
     public String getPassword() {
-        return null;
+        return "{bcrypt}" + this.password;
     }
 }
