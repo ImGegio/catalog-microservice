@@ -18,24 +18,6 @@
     <button type="submit">Get Book by Title</button>
 </form>
 
-<!-- Form per inserire un libro -->
-<form action="/book/insert-book" method="post">
-    <input type="text" name="title" placeholder="Title" required>
-    <button type="submit">Insert Book</button>
-</form>
-
-<!-- Form per aggiornare un libro -->
-<form action="/book/update-book" method="put">
-    <input type="text" name="title" placeholder="Title" required>
-    <input type="text" name="author" placeholder="Author" required>
-    <button type="submit">Update Book</button>
-</form>
-
-<!-- Form per eliminare un libro -->
-<form action="/book/{bookId}" method="delete">
-    <input type="number" name="bookId" placeholder="Book ID" required>
-    <button type="submit">Delete Book</button>
-</form>
 
 <script>
     document.getElementById('getBookForm').addEventListener('submit', function(event) {
