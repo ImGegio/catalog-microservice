@@ -34,6 +34,8 @@ public class UserService implements UserDetailsService{
         User user = userRepository.findByUsername(username);
         if(user == null) throw new UsernameNotFoundException("Utente non trovato");
 
+
+        //Il sistema e' configurato con una base-auth, il token viene qui generato a scopo didattico per prevederne eventuali utilizzi
         String token = Jwts.builder()
                 .setSubject(username)
                 .setIssuedAt(new Date())
