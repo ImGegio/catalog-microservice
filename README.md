@@ -23,3 +23,6 @@ Di seguito la collezione Postman utilizzata per il testing:
 
 - https://app.getpostman.com/join-team?invite_code=6a0a354704f1a2f21754c74bd0e8dc6e&target_code=986975202c8821921cac5a3b7daefe72
 
+N.B. tutte le tabelle sono gestite da Hibernate, quindi generate/aggiornate a runtime.
+Inserire, una volta generate, almeno 1 autore e di conseguenza i libri da referenziare a quest'ultimo/i.
+
